@@ -23,7 +23,10 @@
             "type": "OCR",
             "param": {
                 "expected": [
-                    "荆刺芽针"
+                    "荆刺芽针",
+                    "荊刺芽針",
+                    "Thorny Yazhen",
+                    "茨芽針"
                 ],
                 "roi": [
                     803,
@@ -75,7 +78,10 @@
             "type": "OCR",
             "param": {
                 "expected": [
-                    "荆刺芽针"
+                    "荆刺芽针",
+                    "荊刺芽針",
+                    "Thorny Yazhen",
+                    "茨芽針"
                 ],
                 "roi": [
                     803,
