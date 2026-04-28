@@ -122,7 +122,6 @@ argument-hint: 推荐直接提供：任务名（如“路线6：四号谷地-轻
 用户可能会说“传送点参考某条路线”，这通常只表示：
 
 - 复用该路线的 `SceneEnterWorldXxx`
-- 复用同区域 `map_name`
 
 不一定表示复用该路线原本的断言坐标。
 
@@ -142,7 +141,7 @@ argument-hint: 推荐直接提供：任务名（如“路线6：四号谷地-轻
 
 - 第一个坐标先视为断言点 `[x, y]`，再换算成 `target: [x-10, y-10, 20, 20]`
 - 不要把这个点再塞回第一段 `path`
-- 不要写成 `MapTrackerAssertLocation` 那种 `expected -> map_name / target` 结构；这里应直接写 `zone_id` 和 `target`
+- 不要写成 `MapTrackerAssertLocation` 那种 `expected` 嵌套结构；这里应直接写 `zone_id` 和 `target`
 
 ### 4. 带 `true` 的点必须切段
 
@@ -166,7 +165,6 @@ argument-hint: 推荐直接提供：任务名（如“路线6：四号谷地-轻
 | `RouteFile`      | 目标文件名，例如 `AutoCollectRoute6.json`                                                                         |
 | `TemplateRoute`  | 参考路线，例如 `Route3`                                                                                           |
 | `EnterWorldNode` | 第一传送点，例如 `SceneEnterWorldValleyIVTheHub2`                                                                 |
-| `MapName`        | 导航使用的地图名，例如 `map01_lv001`                                                                              |
 | `AssertTarget`   | 断言框坐标；如果断言点为 `[x, y]`，则换算为 `[x-10, y-10, 20, 20]`，例如点 `[530, 697]` 对应 `[520, 687, 20, 20]` |
 | `ZoneId`         | 不单独向用户索取；默认从 `path` 第一项 `{"action":"ZONE","zone_id":"..."}` 推导，例如 `ValleyIV_Base`             |
 | `ActionType`     | 固定为 `MapNavigateAction`                                                                                        |
@@ -246,7 +244,6 @@ argument-hint: 推荐直接提供：任务名（如“路线6：四号谷地-轻
 - 只有在用户明确给了别的容差矩形时，才不要使用上述默认换算
 - `action` 固定写成：`"DoNothing"`
 - 不要写 `expected` 数组
-- 不要写 `map_name`
 
 `MapLocateAssertLocation` 在本 skill 中的固定理解如下：
 
@@ -290,7 +287,6 @@ argument-hint: 推荐直接提供：任务名（如“路线6：四号谷地-轻
 
 - `action.type` = `Custom`
 - `custom_action` = `MapNavigateAction`
-- `custom_action_param.map_name` = 推断出的 `map_name`
 - `path` 第一项必须是：
 
 ```json
